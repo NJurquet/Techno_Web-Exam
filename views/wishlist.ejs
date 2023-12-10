@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Televisions</title>
+    </head>
+    <body>
+        <h1>Television calculator</h1>
+        <div>
+            <h2>Wished Televisions</h2>
+            <form action="/add" method="POST">
+                <input type="text" name="brand" placeholder="Brand" required />
+                <input type="number" name="size" placeholder="Size" required />
+                <input type="number" name="price" placeholder="Price" required />
+                <input type="submit" value="Add" />
+            </form>
+            <ul>
+                <% for(tv of wishList) { %>
+                <li><%= tv.brand %> <%= tv.size %>' : $<%= tv.price %> <a href="/buy/<%= tv.id %>">Buy</a></li>
+                <% } %>
+            </ul>
+        </div>
+        <div>
+            <h2>Bought Televisions</h2>
+            <ul>
+                <% for(tv of boughtList) { %>
+                <li><%= tv.brand %> <%= tv.size %>' $<%= tv.price %></li>
+                <% } %>
+            </ul>
+            <p>What a huge spender ! Your current balance is : <b>$<%= balance %></b></p>
+        </div>
+    </body>
+</html>
