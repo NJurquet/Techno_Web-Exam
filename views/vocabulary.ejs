@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vocab Memo</title>
+        <link rel="stylesheet" href="/css/vocabulary.css" />
+    </head>
+    <body>
+        <h1>Vocab Memo</h1>
+        <div class="wrapper">
+            <h2 class="title">Vocabulary</h2>
+            <div>
+                <a href="/"><button class="button">Study now !</button></a>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Word</th>
+                            <th>Translation</th>
+                            <th>Score</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% words.forEach((word) => { %>
+                        <tr>
+                            <td><%= word.text %></td>
+                            <td><%= word.translation %></td>
+                            <td>
+                                <% if (word.tries == 0) { %> <% } else { %> <%= 100*word.correct/word.tries %>% <% } %>
+                            </td>
+                            <td><a href="/remove/<%= word.id %>" class="deleteButton">Delete</a></td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+
+                <h3>Add a new word</h3>
+
+                <form action="/add" method="POST">
+                    <label for="word">Word:</label>
+                    <input type="text" name="word" placeholder="Enter word" required />
+                    <label for="translation">Translation:</label>
+                    <input type="text" name="translation" placeholder="Enter translation" required />
+                    <input type="submit" value="Add" />
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

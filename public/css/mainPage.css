@@ -34,15 +34,37 @@ h1 {
 .wrapper > div {
     padding: 0px 40px 40px 40px;
 }
+.wrapper .button {
+    height: 35px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    background: #4246c7;
+    transition: all 0.3s ease;
+}
+.wrapper .button:hover {
+    background: rgb(50, 50, 50);
+}
+.wrapper p {
+    margin: 0 0 20px 0;
+    color: grey;
+}
 .wrapper form {
     display: flex;
     justify-content: left;
     gap: 15px;
 }
+.wrapper form label {
+    line-height: 35px;
+    font-size: 16px;
+}
 .wrapper form input {
     box-sizing: border-box;
     height: 35px;
-    width: 100%;
     font-size: 16px;
     outline: none;
     padding-left: 15px;
@@ -53,11 +75,6 @@ h1 {
 form input:focus {
     border-color: #4158d0;
 }
-.wrapper form input[type="number"] {
-    padding-right: 15px;
-    min-width: 90px;
-    width: 30%;
-}
 .wrapper form input[type="submit"] {
     padding: 0 15px;
     width: auto;
@@ -67,22 +84,5 @@ form input:focus {
     background: #4246c7;
 }
 .wrapper form input[type="submit"]:hover {
-    color: #fff;
-    background: rgb(50, 50, 50);
-}
-.wrapper .button {
-    height: 40px;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 0 15px;
-    cursor: pointer;
-    border: 2px solid #d43100;
-    background: #ffe4e4;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-}
-.wrapper .button:hover {
-    color: #fff;
-    border-color: rgb(50, 50, 50);
     background: rgb(50, 50, 50);
 }

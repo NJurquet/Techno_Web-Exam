@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vocab Memo</title>
+        <link rel="stylesheet" href="/css/mainPage.css" />
+    </head>
+    <body>
+        <h1>Vocab Memo</h1>
+        <div class="wrapper">
+            <h2 class="title">Study</h2>
+            <div>
+                <a href="/vocabulary"><button class="button">Add new words</button></a>
+
+                <% if (feedback) { %>
+                <p><%= feedback %></p>
+                <% } %>
+
+                <p>How do you say : <i><%= word.text %></i> ?</p>
+
+                <form action="/test" method="POST">
+                    <label for="translation">Your answer :</label>
+                    <input type="text" name="translation" placeholder="Translation" required />
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
