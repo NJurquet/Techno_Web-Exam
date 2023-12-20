@@ -33,10 +33,12 @@ app.get("/vocabulary", async (req, res) => {
 app.post("/test", async (req, res) => {
     const wordSession = req.session.word;
     const wordVocab = await Vocab.load({ id: wordSession.id });
-    wordVocab.update({ tries: wordVocab.tries++ });
+    wordVocab.update({ tries: wordVocab.tries + 1 });
     if (req.body.translation == wordSession.translation) {
-        wordVocab.update({ correct: wordVocab.correct++ });
+        wordVocab.update({ correct: wordVocab.correct + 1 });
         feedback = `Unfortunately, ${wordSession.text} is ${wordSession.translation}`;
+    } else {
+        feedback = `You are correct !`;
     }
     res.redirect("/");
 });
