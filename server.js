@@ -36,10 +36,11 @@ app.post("/test", async (req, res) => {
     wordVocab.update({ tries: wordVocab.tries + 1 });
     if (req.body.translation == wordSession.translation) {
         wordVocab.update({ correct: wordVocab.correct + 1 });
-        feedback = `Unfortunately, ${wordSession.text} is ${wordSession.translation}`;
-    } else {
         feedback = `You are correct !`;
+    } else {
+        feedback = `Unfortunately, ${wordSession.text} is ${wordSession.translation}`;
     }
+    wordVocab.save();
     res.redirect("/");
 });
 
